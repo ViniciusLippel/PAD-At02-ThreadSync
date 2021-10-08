@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ClienteSocket {
+public class Client {
 	
 	public static void main (String[] args) throws IOException {
 		//Leitura do teclado

@@ -7,7 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 
-public class ServidorSocket {
+public class Server {
 	
 	public static void main (String[] args) throws IOException{
 		ServerSocket servidor = null;
