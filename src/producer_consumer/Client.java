@@ -1,4 +1,4 @@
-package produtor_consumidor;
+package producer_consumer;
 
 import java.io.IOException;
 import java.io.PrintStream;
