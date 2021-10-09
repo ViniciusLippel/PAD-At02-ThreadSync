@@ -65,7 +65,7 @@ public class Main {
 		System.out.println("Index found: " + singleTValueIndex);
 		System.out.println("Elapsed time: " + (float)singleTElapsedTime/1000000 + " ms");
 		
-		new BarChart(multiTElapsedTime, singleTElapsedTime);
+		new BarChart(arraySize, multiTElapsedTime, singleTElapsedTime);
 		
 	}
 }
