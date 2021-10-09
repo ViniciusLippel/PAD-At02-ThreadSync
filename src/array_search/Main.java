@@ -7,7 +7,7 @@ public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		int arraySize = 20;
+		int arraySize = 5000000;
 		final int threadNum = 4;
 		int sizeForEach = arraySize/threadNum;
 		
@@ -21,10 +21,10 @@ public class Main {
 		}
 		
 		System.out.println("Finding " + value);
-		System.out.print("in ");
-		for(int i=0; i<arraySize; i++)
-			System.out.print(array[i] + " ");
-		System.out.println();
+		
+		
+		//Multithread execution
+		long start = System.nanoTime();    
 		
 		for(int i=1; i<=threadNum; i++) {
 			if(i == 1)
@@ -33,10 +33,37 @@ public class Main {
 				new Thread(new SearchThread((i-1)*sizeForEach, i*sizeForEach-1)).start();
 		}
 		
+		long multiTElapsedTime = System.nanoTime() - start;
 		
-		TimeUnit.SECONDS.sleep(2);
 		
-		System.out.println(new SearchThread().getValueIndex());
+		
+		//Singlethread execution
+		int singleTValueIndex = -1;
+		boolean done = false;
+		int i = 0;
+		start = System.nanoTime();
+		while(!done && i < arraySize) {
+			if(array[i] == value) {
+				singleTValueIndex = i;
+				done = true;
+			}
+			i++;
+		}
+		
+		long singleTElapsedTime = System.nanoTime() - start;
+		
+		
+		//
+		TimeUnit.MILLISECONDS.sleep(100);
+		
+		System.out.println("\nMultithread:");
+		new SearchThread();
+		System.out.println("Index found: " + SearchThread.getValueIndex());
+		System.out.println("Elapsed time: " + (float)multiTElapsedTime/1000000 + " ms");
+		
+		System.out.println("\nSinglethread: ");
+		System.out.println("Index found: " + singleTValueIndex);
+		System.out.println("Elapsed time: " + (float)singleTElapsedTime/1000000 + " ms");
 		
 	}
 }

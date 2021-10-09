@@ -42,7 +42,7 @@ public class SearchThread implements Runnable {
 				valueIndex = i;
 				done = true;
 			}
-			System.out.println("search [" + i + ", " + array[i] + "]");
+			//System.out.println(begIndex + " search [" + i + ", " + array[i] + "]");
 			i++;
 		}
 	}
