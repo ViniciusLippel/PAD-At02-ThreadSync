@@ -19,7 +19,6 @@ public class Server {
 			servidor = new ServerSocket(7000);
 			conexao = servidor.accept();
 			entrada = new BufferedReader (new InputStreamReader (conexao.getInputStream()));
-			
 			do {
 				String texto = entrada.readLine();
 				if(texto == null) {
